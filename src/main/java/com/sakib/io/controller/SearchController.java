@@ -16,11 +16,14 @@ import java.util.List;
 
 @RestController(url = "/api")
 public class SearchController {
-    @Autowired
     private ProductService productService;
 
-    @Autowired
     private SearchService searchService;
+
+    public SearchController(ProductService productService, SearchService searchService) {
+        this.productService = productService;
+        this.searchService = searchService;
+    }
 
     @RequestMapping(url = "/search", type = MethodType.GET)
     public SearchResponse search(@RequestParam("query") String query) {

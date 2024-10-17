@@ -11,8 +11,12 @@ import com.sakib.io.service.ProductService;
 
 @RestController(url = "/api")
 public class ProductController {
-    @Autowired
+
     private ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @RequestMapping(url = "/products", type = MethodType.POST)
     public AddProductResponse addProduct(@RequestBody AddProductRequest request) {

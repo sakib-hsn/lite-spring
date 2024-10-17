@@ -11,8 +11,11 @@ import java.util.List;
 @Component
 public class SearchService {
 
-    @Autowired
     private ProductService productService;
+
+    public SearchService(ProductService productService) {
+        this.productService = productService;
+    }
 
     public List<Product> search(String name) {
         List<Product> filterProducts = new ArrayList<>();
