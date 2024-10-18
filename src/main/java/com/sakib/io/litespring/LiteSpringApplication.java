@@ -20,7 +20,7 @@ public class LiteSpringApplication {
 
         List<Class<?>> classes = new ArrayList<>();
 
-        for(String packageName : packageScan.scanPackages()) {
+        for (String packageName : packageScan.scanPackages()) {
             URL resource = classLoader.getResource(packageName.replace('.', '/'));
             classes.addAll(ClassScanner.scan(new File(resource.getPath()), packageName));
         }

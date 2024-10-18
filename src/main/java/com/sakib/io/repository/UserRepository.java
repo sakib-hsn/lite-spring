@@ -17,14 +17,14 @@ public class UserRepository {
     }
 
     public boolean register(User user) {
-        if(userMap.containsKey(user.getUsername())) return false;
+        if (userMap.containsKey(user.getUsername())) return false;
         userMap.put(user.getUsername(), user);
         return true;
     }
 
     public boolean passwordMatch(String username, String password) {
-        if(!userMap.containsKey(username)) return false;
-        if(userMap.get(username).getPassword().equals(password)) return true;
+        if (!userMap.containsKey(username)) return false;
+        if (userMap.get(username).getPassword().equals(password)) return true;
         return false;
     }
 
@@ -37,7 +37,7 @@ public class UserRepository {
     }
 
     public boolean deleteUser(String username) {
-        if(userMap.containsKey(username)) {
+        if (userMap.containsKey(username)) {
             userMap.remove(username);
             return true;
         }

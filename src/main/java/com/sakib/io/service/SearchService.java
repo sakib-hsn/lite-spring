@@ -1,7 +1,6 @@
 package com.sakib.io.service;
 
 
-import com.sakib.io.litespring.annotation.Autowired;
 import com.sakib.io.litespring.annotation.Component;
 import com.sakib.io.models.Product;
 
@@ -21,8 +20,8 @@ public class SearchService {
         List<Product> filterProducts = new ArrayList<>();
 
         List<Product> products = productService.getAllProducts();
-        for(Product product : products) {
-            if(product.getName().toLowerCase().contains(name)) filterProducts.add(product);
+        for (Product product : products) {
+            if (product.getName().toLowerCase().contains(name)) filterProducts.add(product);
         }
         return filterProducts;
     }

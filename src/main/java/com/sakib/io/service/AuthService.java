@@ -15,7 +15,7 @@ public class AuthService {
     }
 
     public User login(String username, String password) {
-        if(userRepository.passwordMatch(username, password))
+        if (userRepository.passwordMatch(username, password))
             return userRepository.getUser(username);
         return null;
     }

@@ -17,7 +17,7 @@ public class ProductRepository {
     }
 
     public boolean addProduct(Product product) {
-        if(productMap.containsKey(product.getId())) return false;
+        if (productMap.containsKey(product.getId())) return false;
         productMap.put(product.getId(), product);
         return true;
     }

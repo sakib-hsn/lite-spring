@@ -57,7 +57,7 @@ public class CustomSessionService {
 //        }
         // token based
         String token = request.getParameter("token");
-        if(sessionDataMap.containsKey(token)) {
+        if (sessionDataMap.containsKey(token)) {
             SessionData sessionData = sessionDataMap.get(token);
             System.out.println("sessionData.getUsername() = " + sessionData.getUsername());
             UserContext.setUserContext(userRepository.getUser(sessionData.getUsername()));

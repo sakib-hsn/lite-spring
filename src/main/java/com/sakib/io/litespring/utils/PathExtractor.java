@@ -12,7 +12,7 @@ public class PathExtractor {
             return false;
         }
 
-        for (int i = 0; i<mappedParts.length; i++) {
+        for (int i = 0; i < mappedParts.length; i++) {
             if (mappedParts[i].startsWith("{") && mappedParts[i].endsWith("}")) continue;
             if (!mappedParts[i].equals(requestParts[i])) return false;
         }

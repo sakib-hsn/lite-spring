@@ -11,5 +11,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface RequestMapping {
     String url() default "";
+
     MethodType type() default MethodType.GET; // Default to GET if not specified
 }
