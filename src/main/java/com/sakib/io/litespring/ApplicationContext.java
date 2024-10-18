@@ -5,6 +5,7 @@ import com.sakib.io.litespring.annotation.Component;
 import com.sakib.io.litespring.annotation.RequestMapping;
 import com.sakib.io.litespring.annotation.RestController;
 import com.sakib.io.service.ProductService;
+import jakarta.servlet.Filter;
 
 import java.lang.reflect.*;
 import java.util.ArrayList;
@@ -35,12 +36,30 @@ public class ApplicationContext {
         try {
             beanCreates(classes);
             injectDependencies(classes);
+
+            tomCatConfig.addFilters(findFilterBeans(classes));
             DispatcherServlet dispatcherServlet = new DispatcherServlet(findControllerMethods(classes));
+
             tomCatConfig.registerServlet(
-                    dispatcherServlet, dispatcherServlet.getClass().getSimpleName(), "/");
+                    dispatcherServlet, DispatcherServlet.class.getSimpleName(), "/");
+
+            tomCatConfig.start();
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    protected List<Filter> findFilterBeans(List<Class<?>> classes) {
+        List<Filter> filteredBeans = new ArrayList<>();
+        for (Class<?> clazz : classes) {
+            if (clazz.isAnnotationPresent(Component.class)) {
+                if (Filter.class.isAssignableFrom(clazz)) {
+                    filteredBeans.add((Filter) beanFactory.get(clazz.getSimpleName()));
+                }
+            }
+        }
+        return filteredBeans;
     }
 
     protected List<ControllerMethod> findControllerMethods(List<Class<?>> classes) {
@@ -129,5 +148,10 @@ public class ApplicationContext {
 
     public Object getBean(String name) {
         return beanFactory.get(name);
+    }
+
+    public boolean addFilters(List<Filter> filters) {
+        tomCatConfig.addFilters(filters);
+        return true;
     }
 }
