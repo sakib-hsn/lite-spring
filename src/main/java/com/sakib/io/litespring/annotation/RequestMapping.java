@@ -1,6 +1,6 @@
 package com.sakib.io.litespring.annotation;
 
-import com.sakib.io.litespring.MethodType;
+import com.sakib.io.litespring.enums.MethodType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

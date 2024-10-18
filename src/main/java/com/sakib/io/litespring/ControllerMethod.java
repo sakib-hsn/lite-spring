@@ -1,5 +1,6 @@
 package com.sakib.io.litespring;
 
+import com.sakib.io.litespring.enums.MethodType;
 import lombok.Builder;
 import lombok.Data;
 

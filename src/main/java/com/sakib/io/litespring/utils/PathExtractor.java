@@ -1,4 +1,4 @@
-package com.sakib.io.litespring;
+package com.sakib.io.litespring.utils;
 
 import java.util.HashMap;
 import java.util.Map;

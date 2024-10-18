@@ -1,9 +1,7 @@
 package com.sakib.io.controller;
 
 
-import com.sakib.io.litespring.MethodType;
-import com.sakib.io.litespring.annotation.*;
-import com.sakib.io.litespring.annotation.Autowired;
+import com.sakib.io.litespring.enums.MethodType;
 import com.sakib.io.litespring.annotation.RequestMapping;
 import com.sakib.io.litespring.annotation.RequestParam;
 import com.sakib.io.litespring.annotation.RestController;

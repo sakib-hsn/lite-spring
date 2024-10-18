@@ -1,7 +1,7 @@
 package com.sakib.io.controller;
 
 
-import com.sakib.io.litespring.MethodType;
+import com.sakib.io.litespring.enums.MethodType;
 import com.sakib.io.litespring.annotation.*;
 import com.sakib.io.models.Product;
 import com.sakib.io.models.dto.AddProductRequest;
